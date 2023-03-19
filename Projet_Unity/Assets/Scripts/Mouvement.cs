@@ -13,14 +13,16 @@ public class Mouvement : MonoBehaviour
     public float forceSaut;
     public float forceDoubleSaut;
     public Rigidbody2D rb;
-    private Vector2 velocity = Vector2.zero;
     public bool doubleSaut;
     public int dash;
+
+    private bool JumpStart;
     private int tempsDash=-1;
     private float Hori;
     private float Verti;
     private bool facingRight = true;
     private bool isDoubleJumping;
+    private Vector2 velocity = Vector2.zero;
 
     private void Update()
     {
@@ -76,12 +78,14 @@ public class Mouvement : MonoBehaviour
         bool res = false;
         if (doubleSaut)
         {
+            JumpStart = false;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 rb.velocity = new Vector2(0, 0);
                 rb.AddForce(new Vector2(0, forceDoubleSaut));
                 doubleSaut = false;
                 res = true;
+                JumpStart = true;
             }
         }
         return res;
@@ -95,7 +99,7 @@ public class Mouvement : MonoBehaviour
             {
                 Hori = Input.GetAxisRaw("Horizontal");
                 Verti = Input.GetAxisRaw("Vertical");
-                tempsDash = 100;
+                tempsDash = 20;
                 dash = 1;
             }
             if (dash == 1)
@@ -142,5 +146,6 @@ public class Mouvement : MonoBehaviour
         animator.SetFloat("Hori", Math.Abs(Hori));
         animator.SetFloat("Verti", Verti);
         animator.SetFloat("Speed", Math.Abs(rb.velocity.x));
+        animator.SetBool("IsJumping", JumpStart);
     }
 }
