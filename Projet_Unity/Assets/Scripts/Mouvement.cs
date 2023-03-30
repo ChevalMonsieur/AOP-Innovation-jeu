@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 public class Mouvement : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class Mouvement : MonoBehaviour
     {
         if (isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.AddForce(new Vector2(0, forceSaut));
             }
@@ -77,7 +78,7 @@ public class Mouvement : MonoBehaviour
         bool res = false;
         if (doubleSaut)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.velocity = new Vector2(0, 0);
                 rb.AddForce(new Vector2(0, forceDoubleSaut));
@@ -92,11 +93,11 @@ public class Mouvement : MonoBehaviour
     {
         if (dash == 2 || dash == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && dash == 2)
+            if (Input.GetMouseButtonDown(0) && dash == 2)
             {
                 Hori = Input.GetAxisRaw("Horizontal");
                 Verti = Input.GetAxisRaw("Vertical");
-                tempsDash = 12;
+                tempsDash = 120;
                 dash = 1;
             }
             if (dash == 1)
