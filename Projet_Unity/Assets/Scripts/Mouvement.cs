@@ -23,7 +23,7 @@ public class Mouvement : MonoBehaviour
     private bool facingRight = true;
     private bool isDoubleJumping;
     private Vector2 velocity = Vector2.zero;
-
+    private bool jumping = false;
     private void Update()
     {
         MovePlayerHori();
@@ -46,12 +46,12 @@ public class Mouvement : MonoBehaviour
     {
         if (rb.velocity.x > 0.1)
         {
-            transform.localScale = new Vector3(Convert.ToSingle(0.6), Convert.ToSingle(0.6), Convert.ToSingle(0.6));
+            transform.localScale = new Vector3(Convert.ToSingle(-1), Convert.ToSingle(1), Convert.ToSingle(1));
             facingRight = true;
         }
         if (rb.velocity.x < -0.1)
         {
-            transform.localScale = new Vector3(Convert.ToSingle(-0.6), Convert.ToSingle(0.6), Convert.ToSingle(0.6));
+            transform.localScale = new Vector3(Convert.ToSingle(1), Convert.ToSingle(1), Convert.ToSingle(1));
             facingRight = false;
         }
     }
@@ -66,10 +66,15 @@ public class Mouvement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                jumping= true;
                 rb.AddForce(new Vector2(0, forceSaut));
             }
             dash = 2;
             doubleSaut = true;
+        }
+        else
+        {
+            jumping = false;
         }
     }
 
@@ -78,8 +83,9 @@ public class Mouvement : MonoBehaviour
         bool res = false;
         if (doubleSaut)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !jumping)
             {
+                jumping = true;
                 rb.velocity = new Vector2(0, 0);
                 rb.AddForce(new Vector2(0, forceDoubleSaut));
                 doubleSaut = false;
@@ -143,11 +149,9 @@ public class Mouvement : MonoBehaviour
 
     void UpdateAnimation()
     {
-        animator.SetBool("IsGrounded", isGrounded);
-        animator.SetBool("DoubleJump", isDoubleJumping);
-        animator.SetInteger("Dash", dash);
-        animator.SetFloat("Hori", Math.Abs(Hori));
-        animator.SetFloat("Verti", Verti);
-        animator.SetFloat("Speed", Math.Abs(rb.velocity.x));
+        animator.SetBool("jumping", jumping);
+        animator.SetBool("isGrounded", isGrounded);
+        //animator.SetInteger("Dash", dash);
+        animator.SetFloat("speed", Math.Abs(rb.velocity.x));
     }
 }
