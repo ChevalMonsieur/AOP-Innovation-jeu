@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: speed
+    m_ConditionEvent: speedHori
     m_EventTreshold: 0.1
   - m_ConditionMode: 1
     m_ConditionEvent: isGrounded
@@ -43,7 +43,7 @@ AnimatorStateTransition:
     m_ConditionEvent: SitButtonDown
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: speed
+    m_ConditionEvent: speedHori
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
     m_ConditionEvent: isSit
@@ -76,19 +76,19 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6030733840283488080}
-    m_Position: {x: 420, y: 30, z: 0}
+    m_Position: {x: 460, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8823153231620005456}
-    m_Position: {x: 420, y: 100, z: 0}
+    m_Position: {x: 460, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 101769064750110207}
     m_Position: {x: 300, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2975208639850001809}
-    m_Position: {x: 420, y: 170, z: 0}
+    m_Position: {x: 460, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2127299624305531258}
-    m_Position: {x: 180, y: 30, z: 0}
+    m_Position: {x: 50, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8857782471070796152}
     m_Position: {x: 180, y: 100, z: 0}
@@ -99,6 +99,7 @@ AnimatorStateMachine:
   m_AnyStateTransitions:
   - {fileID: -7150587444419608377}
   - {fileID: -4020929338355871178}
+  - {fileID: -3117582222512673408}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -157,6 +158,34 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
+--- !u!1101 &-3117582222512673408
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: isGrounded
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: jumping
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 8857782471070796152}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-3057580955080136249
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -169,7 +198,7 @@ AnimatorStateTransition:
     m_ConditionEvent: isGrounded
     m_EventTreshold: 0.1
   - m_ConditionMode: 3
-    m_ConditionEvent: speed
+    m_ConditionEvent: speedHori
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 101769064750110207}
@@ -295,7 +324,7 @@ AnimatorController:
   m_Name: persoPrincipal-Sheet_0
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: speed
+  - m_Name: speedHori
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0

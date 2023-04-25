@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 5452548538125144665}
   - component: {fileID: 5452548538125144670}
   - component: {fileID: 5452548538125144671}
-  - component: {fileID: 5452548538125144667}
   - component: {fileID: 5452548538125144666}
   - component: {fileID: 9148778942984541723}
+  - component: {fileID: 4942274208114882989}
   m_Layer: 1
   m_Name: Joueur 1
   m_TagString: Player
@@ -212,7 +212,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -221,30 +221,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1867013, y: 2.7624478}
   m_EdgeRadius: 0
---- !u!114 &5452548538125144667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5452548538125144668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1075f14f63517394e9388c22b7ffc0be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5452548538125144666}
-  groundCheckRadius: 0.2
-  solLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  groundCheck: {fileID: 5452548537386659690}
-  vitesse: 9
-  forceSaut: 600
-  forceDoubleSaut: 500
-  rb: {fileID: 5452548538125144670}
-  doubleSaut: 0
-  dash: 0
 --- !u!95 &5452548538125144666
 Animator:
   serializedVersion: 5
@@ -281,3 +257,27 @@ CircleCollider2D:
   m_Offset: {x: 0.22814353, y: -1.5062622}
   serializedVersion: 2
   m_Radius: 0.4891737
+--- !u!114 &4942274208114882989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5452548538125144668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1075f14f63517394e9388c22b7ffc0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  groundCheckRadius: 0
+  solLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheck: {fileID: 0}
+  vitesse: 6
+  forceSaut: 600
+  forceDoubleSaut: 500
+  rb: {fileID: 0}
+  doubleSaut: 0
+  dash: 0
