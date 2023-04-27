@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     {
         if (isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 jumping= true;
                 rb.AddForce(new Vector2(0, forceSaut));
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
         bool res = false;
         if (doubleSaut)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !jumping)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && !jumping)
             {
                 jumping = true;
                 rb.velocity = new Vector2(0, 0);
@@ -101,11 +101,11 @@ public class Player : MonoBehaviour
     {
         if (dash == 2 || dash == 1)
         {
-            if (Input.GetMouseButtonDown(0) && dash == 2)
+            if (Input.GetKeyDown(KeyCode.Space) && dash == 2)
             {
                 Hori = Input.GetAxisRaw("Horizontal");
                 Verti = Input.GetAxisRaw("Vertical");
-                tempsDash = 100;
+                tempsDash = 150;
                 dash = 1;
             }
             if (dash == 1)

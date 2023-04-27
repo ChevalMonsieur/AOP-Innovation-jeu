@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ChangementScene : MonoBehaviour
 {
     [SerializeField]
+    //private int maxtime = 0;
     private GameObject cameraa;
     private Vector3 positionPreMove = Vector3.zero;
     private Vector3 reference = Vector3.zero;
@@ -53,9 +54,10 @@ public class ChangementScene : MonoBehaviour
 
     private void MoveCheck() {
         if (move) {
-            cameraa.transform.position = Vector3.SmoothDamp(cameraa.transform.position, deplacement, ref reference, 0.2f);
-            if (Math.Abs(cameraa.transform.position.x-positionPreMove.x)>=25 || Math.Abs(cameraa.transform.position.y-positionPreMove.y)>=14) {
+            cameraa.transform.position = Vector3.SmoothDamp(cameraa.transform.position, deplacement, ref reference, 0.1f);
+            if (Math.Abs(cameraa.transform.position.x-positionPreMove.x)>=24.99 || Math.Abs(cameraa.transform.position.y-positionPreMove.y)>=13.99) {
                 move=false;
+            cameraa.transform.position = Vector3.Lerp(cameraa.transform.position, deplacement, 0.2f);
             }
         }
     }
