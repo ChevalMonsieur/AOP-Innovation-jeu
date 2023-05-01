@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool doubleSaut;
     public int dash;
     public static float speedVerti;
+    public static float speedHori;
     private float tempsDash=-1;
     private float Hori;
     private float Verti;
@@ -24,16 +25,20 @@ public class Player : MonoBehaviour
     private bool isDoubleJumping;
     public static Vector2 velocity = Vector2.zero;
     private bool jumping = false;
+    private bool sitting = false;
     private void Update()
     {
-        MovePlayerHori();
-        FacingDirection();
         isGrounded = IsGrounded();
-        CheckSaut();
-        isDoubleJumping = CheckDoubleSaut();
-        CheckDash();
+        if (!SitCheck()) {
+            MovePlayerHori();
+            FacingDirection();
+            CheckSaut();
+            isDoubleJumping = CheckDoubleSaut();
+            CheckDash();
+        }
         UpdateAnimation();
         speedVerti = rb.velocity.y;
+        speedHori = rb.velocity.x;
     }
 
     void MovePlayerHori()
@@ -60,6 +65,25 @@ public class Player : MonoBehaviour
 
     bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, solLayer); 
+    }
+
+    bool SitCheck()
+    {
+        if (sitting) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                sitting = false;
+            }
+        } else {
+            if (rb.velocity.x<0.1 && rb.velocity.x > -0.1) {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    rb.velocity = Vector3.zero;
+                    sitting = true;
+                }
+            }
+        }
+        return sitting;
     }
 
     void CheckSaut()
@@ -151,6 +175,7 @@ public class Player : MonoBehaviour
 
     void UpdateAnimation()
     {
+        animator.SetBool("isSit", sitting);
         animator.SetBool("jumping", jumping);
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("speedHori", Math.Abs(rb.velocity.x));
