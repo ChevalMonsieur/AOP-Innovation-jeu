@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
             {
                 Hori = Input.GetAxisRaw("Horizontal");
                 Verti = Input.GetAxisRaw("Vertical");
-                tempsDash = 150;
+                tempsDash = 50;
                 dash = 1;
             }
             if (dash == 1)
