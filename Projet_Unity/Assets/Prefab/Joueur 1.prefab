@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5452548537386659688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.054, y: -0.967, z: 0}
-  m_LocalScale: {x: 0.4910135, y: 0.68768233, z: 0.6666667}
+  m_LocalPosition: {x: 0.048, y: -0.917, z: 0}
+  m_LocalScale: {x: 0.53298694, y: 0.48020858, z: 0.6666667}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5452548538125144664}
@@ -188,7 +188,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 0
@@ -207,7 +207,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12197113, y: -0.18772984}
+  m_Offset: {x: 0.12511826, y: -0.18085563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -218,7 +218,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62620544, y: 1.6218319}
+  m_Size: {x: 0.6224747, y: 1.6106951}
   m_EdgeRadius: 0
 --- !u!95 &5452548538125144666
 Animator:
@@ -252,15 +252,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1075f14f63517394e9388c22b7ffc0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 5452548538125144666}
   groundCheckRadius: 0
   solLayer:
     serializedVersion: 2
-    m_Bits: 0
-  groundCheck: {fileID: 0}
+    m_Bits: 64
+  groundCheck: {fileID: 5452548537386659690}
   vitesse: 6
-  forceSaut: 600
-  forceDoubleSaut: 500
-  rb: {fileID: 0}
+  forceSaut: 560
+  forceDoubleSaut: 460
+  rb: {fileID: 5452548538125144670}
   doubleSaut: 0
   dash: 0

@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
+    public Vector3 respawn;
     public Animator animator;
     public float groundCheckRadius;
     public LayerMask solLayer;

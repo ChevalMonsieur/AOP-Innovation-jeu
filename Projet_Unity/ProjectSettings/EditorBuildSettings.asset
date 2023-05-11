@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LoreBegin.unity
     guid: 26df405e9a8319d4d8c225fb88345313
   - enabled: 1
-    path: Assets/Scenes/TotalRoom.unity
+    path: Assets/Scenes/TutoRoom.unity
     guid: dbfec0d3f7c4c7c4f88bceb4b0e568f8
   m_configObjects: {}
